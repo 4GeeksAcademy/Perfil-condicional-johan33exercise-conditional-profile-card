@@ -1,102 +1,158 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
 .filters {
-  background: white;
-  width: 100%;
+  list-style: none;
+  margin: 12px 0 0 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 8px;
+  overflow-x: auto;
 }
+
 .filters li {
-  display: inline-block;
-  max-width: 80px;
-  padding: 3px;
+  display: flex;
+  flex-direction: column;
+  min-width: 105px;
 }
-.filters li label {
-  display: block;
-  font-size: 12px;
-  font-weight: 900;
+
+.filters label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2d2d2d;
+  margin-bottom: 3px;
+  white-space: nowrap;
 }
-.filters li input {
-  width: 100%;
+
+.filters input,
+.filters select {
+  width: 110px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  outline: none;
 }
-.filters li select {
-  width: 100%;
+
+.filters input[for="name"] {
+  border-color: #6ba6ff;
+  box-shadow: 0 0 0 1px rgba(107, 166, 255, 0.35);
 }
+
+#widget_content {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px 40px;
+  box-sizing: border-box;
+}
+
 .widget {
   position: relative;
-  width: 300px;
-  height: 350px;
-  margin: 50px auto;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  width: 382px;
+  height: 438px;
+  background: #ffffff;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+  overflow: visible;
 }
-.widget .cover {
-  height: 160px;
+
+.cover {
+  width: 100%;
+  height: 118px;
   overflow: hidden;
 }
-.widget .cover img {
+
+.cover img {
   width: 100%;
-  height: auto;
-  min-height: 160px;
-  border-radius: 4px 4px 0 0;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.widget .photo {
-  position: absolute;
-  top: 85px;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  margin: 0 0 0 -55px;
-  border: 5px solid #fff;
+
+.cover.hidden {
+  display: none;
+}
+
+.photo {
+  width: 122px;
+  height: 122px;
   border-radius: 50%;
-}
-.widget h1,
-.widget h2,
-.widget h3 {
+  object-fit: cover;
   display: block;
-  margin: 10px 0;
-  text-align: center;
-  font-family: "Open Sans", sans-serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: #999;
+  margin: 108px auto 0 auto;
 }
+
+.widget.has-cover .photo {
+  margin-top: 45px;
+}
+
 .widget h1 {
-  margin: 60px 0 20px;
-  font-size: 26px;
-  color: #000;
-}
-.widget h3 {
-  font-size: 12px;
-}
-.widget ul {
-  position: absolute;
-  top: 20px;
-  padding: 0;
-  background: #2cdfd3;
-}
-.widget ul.position-left {
-  left: -26px;
-}
-.widget ul.position-right {
-  right: -27px;
-}
-.widget ul li {
-  list-style: none;
-}
-.widget ul li a {
-  display: block;
-  padding: 5px 6px;
-  color: #fff;
-  cursor: pointer;
+  margin: 42px 0 0 0;
   text-align: center;
-  border-bottom: 1px solid #2cd5ca;
-  transition: background-color 0.3s;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 400;
+  color: #1d1d1d;
 }
-.widget ul li:hover > a {
-  background-color: #2cd5ca;
+
+.widget h2 {
+  margin: 18px 0 0 0;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #a8a8a8;
 }
-.widget ul li:first-child > a {
-  border-radius: 0 3px 0 0;
+
+.widget h3 {
+  margin: 12px 0 0 0;
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #b7b7b7;
 }
-.widget ul li:last-child > a {
-  border: none;
-  border-radius: 0 0 3px 0;
+
+.social-bar {
+  position: absolute;
+  top: 40px;
+  width: 34px;
+  background: #58d9d0;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.social-bar.right {
+  right: -33px;
+}
+
+.social-bar.left {
+  left: -33px;
+}
+
+.social-bar a {
+  color: #ffffff;
+  font-size: 24px;
+  line-height: 1;
+  text-decoration: none;
+  display: block;
+}
+
+.social-bar a.disabled {
+  pointer-events: none;
 }
